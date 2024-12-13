@@ -162,7 +162,7 @@ public class Startup
                 return Results.Ok(adms);
             })
             .RequireAuthorization()
-            .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = "adm" })
             .WithTags("Administradores");
 
             endpoints.MapGet("/Administradores/{id}", ([FromRoute] int id, IAdministradorServico administradorServico) => {
@@ -175,7 +175,7 @@ public class Startup
                 });
             })
             .RequireAuthorization()
-            .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = "adm" })
             .WithTags("Administradores");
 
             endpoints.MapPost("/administradores", ([FromBody] AdministradorDTO administradorDTO, IAdministradorServico administradorServico) => {
@@ -209,7 +209,7 @@ public class Startup
                 
             })
             .RequireAuthorization()
-            .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = "adm" })
             .WithTags("Administradores");
             #endregion
 
@@ -247,7 +247,7 @@ public class Startup
                 return Results.Created($"/veiculo/{veiculo.Id}", veiculo);
             })
             .RequireAuthorization()
-            .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm,Editor" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = "adm,editor" })
             .WithTags("Veiculos");
 
             endpoints.MapGet("/veiculos", ([FromQuery] int? pagina, IVeiculoServico veiculoServico) => {
@@ -262,7 +262,7 @@ public class Startup
                 return Results.Ok(veiculo);
             })
             .RequireAuthorization()
-            .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm,Editor" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = "adm,editor" })
             .WithTags("Veiculos");
 
             endpoints.MapPut("/veiculos/{id}", ([FromRoute] int id, VeiculoDTO veiculoDTO, IVeiculoServico veiculoServico) => {
@@ -282,7 +282,7 @@ public class Startup
                 return Results.Ok(veiculo);
             })
             .RequireAuthorization()
-            .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = "adm" })
             .WithTags("Veiculos");
 
             endpoints.MapDelete("/veiculos/{id}", ([FromRoute] int id, IVeiculoServico veiculoServico) => {
@@ -294,7 +294,7 @@ public class Startup
                 return Results.NoContent();
             })
             .RequireAuthorization()
-            .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = "adm" })
             .WithTags("Veiculos");
             #endregion
         });
